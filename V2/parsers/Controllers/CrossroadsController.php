@@ -32,7 +32,7 @@ class CrossroadsController
                         $page = $parser->getPage($parseUrl, 'get',
                             ['page' => $i, 'ajax' => true, 'sort' => 'rate_desc']
                         );
-                        $parsedArr = $parser->parsePage($startPage, $cat);
+                        $parsedArr = $parser->parsePage($page, $cat);
                         $this->saveData($parsedArr);
                     }
 
