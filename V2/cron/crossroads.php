@@ -7,5 +7,5 @@ try {
     $controller = new \parsers\Controllers\CrossroadsController();
     $controller->grabData();
 } catch (\Exception $e) {
-    print $e->getMessage();
+    print '[' . date('Y-m-d H:i:s') . ']' . $e->getMessage() . ' TRACE: ' . $e->getTraceAsString() . PHP_EOL;
 }

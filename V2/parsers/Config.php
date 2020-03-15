@@ -37,7 +37,8 @@ class Config
             'login' => 'root',
             'password' => '123',
             'options' => [
-                \PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION
+                \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION,
+                \PDO::ATTR_EMULATE_PREPARES => true,
             ],
         ];
     }
@@ -54,7 +55,8 @@ class Config
             'login' => 'root',
             'password' => '123',
             'options' => [
-                \PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION
+                \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION,
+                \PDO::ATTR_EMULATE_PREPARES => true,
             ],
         ];
     }

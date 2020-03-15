@@ -25,6 +25,7 @@ class Db
         $config = (defined('LOCAL') ? Config::getTestDbSettings() : Config::getDbSettings());
         //$config = Config::getTestDbSettings();
         $this->dbh = new \PDO($config['dsn'], $config['login'], $config['password'], $config['options']);
+        $this->execute('SET NAMES UTF8;');
     }
 
     /**
