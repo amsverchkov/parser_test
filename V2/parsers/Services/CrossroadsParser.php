@@ -70,6 +70,17 @@ class CrossroadsParser
      */
     public function parsePage(string $page, CrossroadsCategories $category) :array
     {
+
+        $pageJSON = json_decode($page, true);
+
+        if ($pageJSON) {
+            if (empty($pageJSON['html'])) {
+                echo 'INVALID JSON IN ' . __METHOD__ . PHP_EOL;
+                return [];
+            }
+            $page = $pageJSON['html'];
+        }
+
         $rtnArr = [];
 
         $dom = \PHPQuery::newDocument($page);

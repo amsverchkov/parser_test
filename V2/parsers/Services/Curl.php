@@ -14,10 +14,17 @@ class Curl
      */
     public static function getPage($url, $method = 'get', $params = []) :string
     {
-        if ($ch = curl_init($url)) {
-            $params = http_build_query($params);
+        $params = http_build_query($params);
+        if ($ch = curl_init($url . '?' . $params)) {
+
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             curl_setopt($ch, CURLOPT_FOLLOWLOCATION , true);
+
+            if ($method == 'post') {
+                curl_setopt($ch, CURLOPT_POST, true);
+                curl_setopt($ch, CURLOPT_POSTFIELDS, $params);
+            }
+
             $res = curl_exec($ch);
             curl_close($ch);
             return $res;
